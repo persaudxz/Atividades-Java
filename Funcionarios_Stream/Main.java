@@ -5,9 +5,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // ─────────────────────────────────────────────
-        // 1. POPULAÇÃO DA LISTA
-        // ─────────────────────────────────────────────
         List<Funcionario> funcionarios = new ArrayList<>(Arrays.asList(
             new Funcionario("Ana Souza",       "TI",          5800.00, 12),
             new Funcionario("Bruno Lima",      "TI",          4200.00,  7),
@@ -24,10 +21,6 @@ public class Main {
         separador("LISTA COMPLETA DE FUNCIONÁRIOS");
         funcionarios.forEach(System.out::println);
 
-
-        // ─────────────────────────────────────────────
-        // 2. FILTRAGEM — salário > R$ 3.000
-        // ─────────────────────────────────────────────
         separador("FUNCIONÁRIOS COM SALÁRIO SUPERIOR A R$ 3.000");
 
         List<Funcionario> filtradosPorSalario = funcionarios.stream()
@@ -37,9 +30,6 @@ public class Main {
         filtradosPorSalario.forEach(System.out::println);
 
 
-        // ─────────────────────────────────────────────
-        // 3. MAPEAMENTO — aumento de 5% para +10 anos
-        // ─────────────────────────────────────────────
         separador("APLICANDO AUMENTO DE 5% PARA FUNCIONÁRIOS COM MAIS DE 10 ANOS DE SERVIÇO");
 
         funcionarios.stream()
@@ -53,10 +43,6 @@ public class Main {
             .filter(f -> f.getAnosDeServico() > 10)
             .forEach(System.out::println);
 
-
-        // ─────────────────────────────────────────────
-        // 4. ORDENAÇÃO — por nome em ordem alfabética
-        // ─────────────────────────────────────────────
         separador("FUNCIONÁRIOS ORDENADOS ALFABETICAMENTE PELO NOME");
 
         funcionarios.stream()
@@ -64,9 +50,6 @@ public class Main {
             .forEach(System.out::println);
 
 
-        // ─────────────────────────────────────────────
-        // 5. REDUÇÃO — total gasto com salários
-        // ─────────────────────────────────────────────
         separador("TOTAL DA FOLHA DE PAGAMENTO");
 
         double totalSalarios = funcionarios.stream()
@@ -76,9 +59,6 @@ public class Main {
         System.out.printf("Total gasto com salários: R$ %.2f%n", totalSalarios);
 
 
-        // ─────────────────────────────────────────────
-        // 6. AGRUPAMENTO — média salarial por departamento
-        // ─────────────────────────────────────────────
         separador("MÉDIA SALARIAL POR DEPARTAMENTO");
 
         Map<String, Double> mediaPorDepartamento = funcionarios.stream()
@@ -94,10 +74,6 @@ public class Main {
                     entry.getKey(), entry.getValue())
             );
 
-
-        // ─────────────────────────────────────────────
-        // 7. DESAFIO — funcionário com maior tempo de serviço
-        // ─────────────────────────────────────────────
         separador("FUNCIONÁRIO COM MAIOR TEMPO DE SERVIÇO");
 
         funcionarios.stream()
@@ -108,9 +84,7 @@ public class Main {
             );
 
 
-        // ─────────────────────────────────────────────
-        // 8. DESAFIO — saída formatada personalizada
-        // ─────────────────────────────────────────────
+ 
         separador("SAÍDA FORMATADA PERSONALIZADA");
 
         funcionarios.stream()
@@ -123,9 +97,6 @@ public class Main {
             );
     }
 
-    // ─────────────────────────────────────────────
-    // Utilitário para separar seções no console
-    // ─────────────────────────────────────────────
     private static void separador(String titulo) {
         System.out.println("\n" + "=".repeat(60));
         System.out.println("  " + titulo);
